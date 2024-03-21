@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <title>xjcpp</title>
-  <link rel="stylesheet" href="./style.css">
   <style>
     @import 'https://unpkg.com/open-props' layer(design.system);
 
@@ -30,23 +29,12 @@
     }
 
     @layer base.utilities {
-      /* sensible defaults for the utility are set */
-      /* but it exposed an API for overrides with a matching prop for a utilitiy name */
-      /* without needing a new classname */
-      /* one name to remember, multiple value capable */
-      /* props don't cascade */
-      /* utilities use :where() and have no specificty */
-      /* no !importants anywhere */
-      /* use media queries, container queries, etc, without a funky class syntax */
 
-      /* rounded(--_rounded:Length) */
       :where(.rounded) {
         --_rounded: initial;
         border-radius: var(--_rounded, var(--radius-2));
       }
 
-      /* why the initial value on the class itself? */
-      /* https://increment.com/frontend/a-users-guide-to-css-variables/#:~:text=Preventing%20inheritance */
 
       :where(.padding) {
         --_padding: initial;
@@ -104,7 +92,6 @@
 
         border: var(--_border-size, var(--border-size-1)) var(--_border-style, solid) var(--_border-color, var(--surface-2));
 
-        /* smart exceptions for combinations using defaults */
         &:where(.surface) {
           --_border-color: var(--surface-3);
         }
@@ -159,12 +146,7 @@
         overflow: hidden;
       }
 
-      /* todo: */
-      /* align/justify/place content/items? */
-      /* success, warning, danger, etc? */
 
-      /* question: make these or rely on uno, tw, etc to gen them? */
-      /* portrait, landscape, text-align, tight lineheight, nowrap, shrinkwrap */
     }
 
     @layer base.demo {
@@ -224,7 +206,7 @@
           background-position: center;
           z-index: var(--layer-3);
 
-          /* <Suspense> */
+
           animation: var(--animation-fade-out) 1s forwards;
         }
       }
@@ -250,7 +232,7 @@
       animation: fade-out 0.25s forwards;
     }
 
-    /* override fade-out open-props */
+
     @keyframes fade-out {
       100% {
         opacity: 0;
@@ -261,7 +243,7 @@
 </head>
 
 <body>
-  <!-- partial:index.partial.html -->
+
   <section class="Section block padding">
     <header class="Header inline">
     </header>
@@ -270,7 +252,7 @@
         <button class="Button rounded border truncate">
           <div class="ImgContainer block">
 
-            <img src="https://s21.ax1x.com/2024/03/20/pFfPEZT.jpg" alt="Halloween Celebration" />
+            <img src="picture/1.webp" alt="Halloween Celebration" />
             <img src="https://s21.ax1x.com/2024/03/20/pFf91pR.webp" alt="Halloween Celebration" />
             <!-- <img
               src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/halloween-rank-pairs/images/img-5.webp"
@@ -292,7 +274,7 @@
         <button class="Button rounded border truncate">
           <div class="ImgContainer block">
 
-            <img src="https://s21.ax1x.com/2024/03/20/pFfPVdU.jpg" alt="Halloween Celebration" />
+            <img src="picture/2.webp" alt="Halloween Celebration" />
             <img src="https://s21.ax1x.com/2024/03/20/pFf9Qh9.webp" alt="Halloween Celebration" />
             <!-- <img
               src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/halloween-rank-pairs/images/img-6.webp"
@@ -314,7 +296,7 @@
       </div>
     </div>
   </section>
-  <!-- partial -->
+
   <script>const buttons = document.querySelectorAll('section button');
     let initial = document.querySelectorAll('button img').length / 2;
     let count = initial;
@@ -332,7 +314,7 @@
         }
 
 
-        // For demo purposes (looping images)
+
         else {
           count = initial;
           document.querySelectorAll(`button img`).forEach((img) => {
